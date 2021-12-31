@@ -1,0 +1,168 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 62.5%*16px = 10px */
+}
+body {
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  background-color: hsl(217, 54%, 11%);
+  color: hsl(215, 51%, 70%);
+}
+
+.card-container {
+  min-height: 100vh; /* to get fullscreen on large devices -- 'min' to work on devices where 100vh < card content height */
+  padding-top: 5rem;
+}
+
+.card {
+  background-color: hsl(216, 50%, 16%);
+  max-width: 35.2rem; /* max to work for devices less than 252px width */
+  padding: 2.5rem;
+  font-size: 1.8rem;
+  margin: auto;
+  border-radius: 1.6rem;
+}
+
+.logo-container {
+  margin-bottom: 2.5rem;
+  border-radius: 1.6rem; /* to work when hovering */
+}
+
+.logo-img {
+  max-width: min(
+    30.2rem,
+    100%
+  ); /*min function to address the 320 mobiles -- 100% of the logo-container */
+  display: block;
+  border-radius: 1.6rem; /* to work when not hovering */
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 2.5rem;
+  line-height: normal; /* to control margins more accurately */
+  width: fit-content; /* width = text content */
+}
+
+.content {
+  font-size: 1.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.sub {
+  margin-bottom: 2.5rem;
+  font-size: 1.6rem;
+}
+
+.eth {
+  color: hsl(178, 100%, 50%);
+  font-weight: 400;
+  float: left;
+  line-height: normal;
+}
+
+.time {
+  float: right;
+  line-height: normal;
+}
+
+/* we use clearfix when the content (without floated elements) height is less than the floated elements largest height, or there is no content */
+.sub::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* centering logos with text */
+.eth-logo,
+.time-logo,
+.eth span,
+.time span {
+  vertical-align: middle;
+}
+
+hr {
+  border: 0;
+  height: 0.1rem;
+  background: hsl(215, 32%, 27%);
+  margin-bottom: 2.5rem;
+}
+
+.creator {
+  font-size: 1.6rem;
+  display: flow-root; /* has no effect because we set the creator-name height */
+}
+
+.avatar-container {
+  margin-right: 1.2rem;
+  float: left;
+}
+
+.avatar {
+  display: block;
+  border-radius: 50%;
+  border: 1.8px solid white;
+  width: 3rem;
+}
+
+.creator-name {
+  /* we set height and line-height to the height of avatar so we center the content */
+  min-height: 3rem; /* min to deal with more-than-one-line content */
+  line-height: 3rem;
+}
+
+.creator-name-inline {
+  color: white;
+}
+
+/* This is a solution for logo hovering:
+ * we make an after pseudo element and absoultely position it
+ * we make it take the same dims as parent and make the background.
+.logo-container:hover {
+    position:relative;
+}
+
+.logo-container:hover::after {
+    content: '';
+    border-radius: 1.6rem;
+    display: block;
+    position: absolute;
+    left: 0; 
+    top:0;
+    width:100%; 
+    background: hsla(178, 100%, 50%, 0.5);
+} */
+
+.logo-container:hover {
+  background-image: url(images/icon-view.svg),
+    linear-gradient(0deg, hsla(178, 100%, 50%, 0.5), hsla(178, 100%, 50%, 0.5)),
+    url(images/image-equilibrium.jpg);
+  background-size: auto, cover, cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.logo-img:hover {
+  opacity: 0; /* to hide when hover. visibility: hidden doesn't work consistentely. */
+}
+
+.heading:hover,
+.creator-name-inline:hover {
+  color: hsl(178, 100%, 50%);
+}
+
+@media only screen and (max-width: 375.1px) { 
+    html {
+        font-size: 8.75px;
+    }
+ };
