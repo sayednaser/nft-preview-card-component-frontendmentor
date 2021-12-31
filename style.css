@@ -161,8 +161,8 @@ hr {
   color: hsl(178, 100%, 50%);
 }
 
-@media only screen and (max-width: 375.1px) { 
-    html {
-        font-size: 8.75px;
-    }
- };
+@media only screen and (max-width: 375.1px) {
+  html {
+    font-size: 8.75px;
+  }
+} ;
