@@ -80,7 +80,7 @@ body {
 }
 ```
 
-## **Note: Inheritance is always from the parent element in the document tree, even when the parent element is not the containing block. (MDN)**
+**Note: Inheritance is always from the parent element in the document tree, even when the parent element is not the containing block. (MDN)**
 
 Basic layout can be implemented by floating. We can also implement a full grid with float, but no need for that in the current project.
 
